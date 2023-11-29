@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   post "sign-up" => "registrations#create"
 
+  get "sign-in" => "sessions#new", as: :sign_in
+
+  post "sign-in" => "sessions#create"
+
+  get "logout" => "registrations#logout", as: :logout
+
   get "about", to: "about#index", as: :about
 
   get "contact-us", to: "main#contact", as: :contact

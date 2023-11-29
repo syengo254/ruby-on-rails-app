@@ -1,3 +1,13 @@
 <div class="d-flex align-items-center justify-content-center">
   <h1>Welcome to Scheduled Tweets</h1>
 </div>
+
+<div class="text-center">
+  <% if @user %>
+  <p>Logged in as: <%= @user.email %></p>
+  <% else %>
+  <p>
+    <%= link_to "Login", sign_in_path, class: "btn btn-primary" %>
+  <p>
+    <% end %>
+</div>
