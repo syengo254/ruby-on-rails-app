@@ -3,11 +3,16 @@
 </div>
 
 <div class="text-center">
-  <% if @user %>
-  <p>Logged in as: <%= @user.email %></p>
+  <% if Current.user %>
+  <p>Logged in as: <%= link_to Current.user.email, password_path %></p>
   <% else %>
   <p>
     <%= link_to "Login", sign_in_path, class: "btn btn-primary" %>
   <p>
-    <% end %>
+  <div>
+    <span>
+      <%= link_to "Forgot password?", password_reset_path, class: "nav nav-link" %>
+    </span>
+  </div>
+  <% end %>
 </div>

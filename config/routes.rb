@@ -19,6 +19,17 @@ Rails.application.routes.draw do
 
   get "contact-us", to: "main#contact", as: :contact
 
+  get "password", to: "accounts#edit", as: :password
+
+  patch "password", to: "accounts#update"
+
+  get "password/reset", to: "password_reset#reset", as: :password_reset
+  post "password/reset", to: "password_reset#reset"
+
+  # edit will show the form on click email link, update is to update with new pass.
+  get "password/reset/edit", to: "password_reset#edit", as: :password_edit
+  patch "password/reset/edit", to: "password_reset#update"
+
   root to: "main#index"
 
   # Defines the root path route ("/")

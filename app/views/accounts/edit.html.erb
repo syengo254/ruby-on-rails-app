@@ -1,0 +1,31 @@
+<h1>Edit Password</h1>
+
+<%= form_with model: Current.user, url: password_path, method: "patch", data: {turbo: false} do |form| %>
+<% if form.object.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <%= form.object.errors.full_messages.each do |message| %>
+  <div><%= message %></div>
+  <% end %>
+</div>
+<% end %>
+
+<div class="mb-3">
+  <%= form.label "Current password", class: "form-label" %>
+  <%= form.password_field "curr_password", class: "form-control form-control-sm", placeholder: "password", "autocomplete": "off" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label "New password", class: "form-label" %>
+  <%= form.password_field :password, class: "form-control form-control-sm", placeholder: "password", "autocomplete": "off" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :password_confirmation, class: "form-label" %>
+  <%= form.password_field :password_confirmation, class: "form-control form-control-sm", placeholder: "password", "autocomplete": "off" %>
+</div>
+
+<div class="mb-3">
+  <%= form.submit "Change Password", class: "btn btn-sm btn-primary" %>
+</div>
+
+<% end %>
